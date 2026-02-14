@@ -6,7 +6,7 @@ export const characters: CharacterProfile[] = [
     slug: 'gatssn',
     emoji: '👑',
     name: {
-      ko: '갓쓴키로형',
+      ko: '갓쓴키로',
       en: 'Gatssn Kiro',
       ja: 'ガッスンキロ型',
     },
@@ -190,7 +190,7 @@ export const characters: CharacterProfile[] = [
     slug: 'chonggak',
     emoji: '👻',
     name: {
-      ko: '총각귀신형',
+      ko: '총각귀신',
       en: 'Chonggak Ghost',
       ja: 'チョンガク型',
     },
@@ -374,7 +374,7 @@ export const characters: CharacterProfile[] = [
     slug: 'cheonyeo',
     emoji: '👰',
     name: {
-      ko: '처녀귀신형',
+      ko: '처녀귀신',
       en: 'Cheonyeo Ghost',
       ja: 'チョニョ型',
     },
@@ -558,7 +558,7 @@ export const characters: CharacterProfile[] = [
     slug: 'dokkaebi',
     emoji: '👹',
     name: {
-      ko: '도깨비형',
+      ko: '도깨비',
       en: 'Dokkaebi',
       ja: 'トッケビ型',
     },
@@ -742,7 +742,7 @@ export const characters: CharacterProfile[] = [
     slug: 'gumiho',
     emoji: '🦊',
     name: {
-      ko: '구미호형',
+      ko: '구미호',
       en: 'Gumiho',
       ja: 'クミホ型',
     },
@@ -926,7 +926,7 @@ export const characters: CharacterProfile[] = [
     slug: 'haetae',
     emoji: '🦁',
     name: {
-      ko: '해태형',
+      ko: '해태',
       en: 'Haetae',
       ja: 'ヘテ型',
     },
@@ -1110,7 +1110,7 @@ export const characters: CharacterProfile[] = [
     slug: 'jangseung',
     emoji: '🪵',
     name: {
-      ko: '장승형',
+      ko: '장승',
       en: 'Jangseung',
       ja: 'チャンスン型',
     },
@@ -1294,7 +1294,7 @@ export const characters: CharacterProfile[] = [
     slug: 'jeoseung',
     emoji: '⚰️',
     name: {
-      ko: '저승사자형',
+      ko: '저승사자',
       en: 'Jeoseung Saja',
       ja: 'チョスンサジャ型',
     },
@@ -1478,7 +1478,7 @@ export const characters: CharacterProfile[] = [
     slug: 'mulgwisin',
     emoji: '🌊',
     name: {
-      ko: '물귀신형',
+      ko: '물귀신',
       en: 'Mulgwisin',
       ja: 'ムルグィシン型',
     },
@@ -1662,7 +1662,7 @@ export const characters: CharacterProfile[] = [
     slug: 'dalgyal',
     emoji: '🥚',
     name: {
-      ko: '달걀귀신형',
+      ko: '달걀귀신',
       en: 'Dalgyal Ghost',
       ja: 'ダルギャル型',
     },
