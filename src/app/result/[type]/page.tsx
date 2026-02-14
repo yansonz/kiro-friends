@@ -31,13 +31,30 @@ export async function generateMetadata({
     return { title: 'Kiro 프렌즈' };
   }
 
+  const ogImageUrl = `https://kiro-friends.yanbert.com/og/${character.slug}.png`;
+  const pageUrl = `https://kiro-friends.yanbert.com/result/${character.slug}`;
+
   return {
     title: `${character.name.ko} - Kiro 프렌즈`,
     description: character.description.ko,
     openGraph: {
+      type: 'website',
+      url: pageUrl,
       title: `${character.name.ko} - Kiro 프렌즈`,
       description: character.description.ko,
-      images: [{ url: `/og/${character.slug}.png`, width: 1200, height: 630 }],
+      siteName: 'Kiro 프렌즈',
+      images: [{ 
+        url: ogImageUrl, 
+        width: 1200, 
+        height: 630,
+        alt: `${character.name.ko} 캐릭터 이미지`,
+      }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${character.name.ko} - Kiro 프렌즈`,
+      description: character.description.ko,
+      images: [ogImageUrl],
     },
   };
 }
@@ -57,7 +74,7 @@ export default async function ResultPage({
   }
 
   // 공유 URL 생성 (정적 사이트이므로 상대 경로 기반)
-  const resultUrl = `https://kiro-friends.example.com/result/${character.slug}`;
+  const resultUrl = `https://kiro-friends.yanbert.com/result/${character.slug}`;
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
