@@ -7,6 +7,7 @@ import { useState } from 'react';
 import type { CharacterProfile } from '@/lib/types';
 import Toast from './Toast';
 import { useTranslation } from '@/lib/hooks/useTranslation';
+import { trackShare } from '@/lib/analytics';
 
 interface ShareButtonsProps {
   character: CharacterProfile;
@@ -23,6 +24,8 @@ export default function ShareButtons({ character, resultUrl, onLinkCopied }: Sha
     try {
       await navigator.clipboard.writeText(resultUrl);
       setToastMessage(t('share.linkCopied'));
+      // 공유 추적
+      trackShare('link_copy', character.slug);
       // 링크 복사 완료 시 콜백 호출
       if (onLinkCopied) {
         onLinkCopied();
@@ -42,6 +45,8 @@ export default function ShareButtons({ character, resultUrl, onLinkCopied }: Sha
     link.click();
     document.body.removeChild(link);
     setToastMessage(t('share.imageDownload'));
+    // 공유 추적
+    trackShare('image_download', character.slug);
   };
 
   return (

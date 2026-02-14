@@ -2,8 +2,10 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import { characters } from '@/data/characters';
 import { useTranslation } from '@/lib/hooks/useTranslation';
+import { trackHomeLanding, trackCTAClick } from '@/lib/analytics';
 
 /** 10개 캐릭터 이모지를 원형으로 배치하기 위한 각도 계산 */
 function getCirclePosition(index: number, total: number) {
@@ -17,6 +19,11 @@ function getCirclePosition(index: number, total: number) {
 
 export default function Home() {
   const { t, locale } = useTranslation();
+  
+  // 홈 페이지 랜딩 추적
+  useEffect(() => {
+    trackHomeLanding();
+  }, []);
   
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-950 px-4 py-8 text-white">
@@ -89,6 +96,7 @@ export default function Home() {
         {/* CTA 버튼 - 최소 44px 터치 타겟 보장 */}
         <Link
           href="/quiz"
+          onClick={() => trackCTAClick('start_quiz', 'home')}
           className="min-h-[48px] rounded-full bg-gradient-to-r from-purple-600 to-orange-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-purple-700/30 transition-all hover:scale-105 hover:shadow-purple-600/40 active:scale-95"
         >
           {t('home.cta')}

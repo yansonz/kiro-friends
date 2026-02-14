@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useTranslation } from '@/lib/hooks/useTranslation';
+import { trackMusicPlayerInteraction } from '@/lib/analytics';
 
 // 음계 주파수 (반음 포함 - 불협화음용)
 const notes: Record<string, number> = {
@@ -159,6 +160,9 @@ export default function MusicPlayer() {
   const handleToggle = () => {
     const newMuted = !isMuted;
     setIsMuted(newMuted);
+    
+    // 음악 플레이어 인터랙션 추적
+    trackMusicPlayerInteraction(newMuted ? 'pause' : 'play');
     
     // AudioContext가 이미 초기화되어 있으면 즉시 볼륨 조정
     if (masterGainRef.current) {

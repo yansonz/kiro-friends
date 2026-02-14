@@ -35,6 +35,8 @@ jobs:
         run: npm run generate-og
 
       - name: Build Next.js
+        env:
+          NEXT_PUBLIC_AMPLITUDE_API_KEY: ${{ secrets.AMPLITUDE_API_KEY }}
         run: npm run build
 
       - name: Upload artifact

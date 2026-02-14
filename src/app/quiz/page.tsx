@@ -10,6 +10,7 @@ import { getResult } from '@/lib/quiz-engine';
 import ProgressBar from '@/components/ProgressBar';
 import { useTranslation } from '@/lib/hooks/useTranslation';
 import Image from 'next/image';
+import { trackQuizStart, trackQuizQuestion, trackQuizAnswer, trackQuizComplete } from '@/lib/analytics';
 
 /** 전체 질문 수 */
 const TOTAL_QUESTIONS = 16;
@@ -41,6 +42,16 @@ export default function QuizPage() {
     Array(TOTAL_QUESTIONS).fill(null)
   );
   const [floatingCharacters, setFloatingCharacters] = useState<FloatingCharacter[]>([]);
+
+  // 퀴즈 시작 추적 (최초 1회만)
+  useEffect(() => {
+    trackQuizStart();
+  }, []);
+
+  // 질문 변경 시 추적
+  useEffect(() => {
+    trackQuizQuestion(currentQuestion + 1);
+  }, [currentQuestion]);
 
   // 떠다니는 캐릭터 초기화 - 겹치지 않도록 그리드 배치
   useEffect(() => {
@@ -75,6 +86,9 @@ export default function QuizPage() {
   /** 선택지 클릭 핸들러 */
   const handleOptionClick = useCallback(
     (optionIndex: number) => {
+      // 응답 추적
+      trackQuizAnswer(currentQuestion + 1, optionIndex);
+      
       // 응답 저장
       const newAnswers = [...answers];
       newAnswers[currentQuestion] = optionIndex;
@@ -84,6 +98,10 @@ export default function QuizPage() {
       if (currentQuestion === TOTAL_QUESTIONS - 1) {
         const finalAnswers = newAnswers as number[];
         const result = getResult(finalAnswers);
+        
+        // 퀴즈 완료 추적
+        trackQuizComplete(result);
+        
         // 퀴즈 완료 후 이동임을 표시하는 쿼리 파라미터 추가
         router.push(`/result/${result}?completed=true`);
         return;

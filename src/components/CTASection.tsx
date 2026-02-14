@@ -9,6 +9,7 @@
 
 import type { CharacterProfile } from '@/lib/types';
 import { useTranslation } from '@/lib/hooks/useTranslation';
+import { trackCTAClick } from '@/lib/analytics';
 
 interface CTASectionProps {
   character: CharacterProfile;
@@ -29,6 +30,7 @@ export default function CTASection({ character }: CTASectionProps) {
           href="https://kiro.dev"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackCTAClick('download_kiro', 'cta_section', { character: character.slug })}
           className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3
                      min-h-[48px] bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-xl
                      transition-colors duration-200 text-center text-sm"
@@ -40,6 +42,7 @@ export default function CTASection({ character }: CTASectionProps) {
           href="https://kiro.dev"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackCTAClick('learn_more', 'cta_section', { character: character.slug })}
           className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3
                      min-h-[48px] bg-gray-800 hover:bg-gray-700 text-purple-200 font-bold rounded-xl
                      border border-purple-800/40 transition-colors duration-200 text-center text-sm"
@@ -58,6 +61,7 @@ export default function CTASection({ character }: CTASectionProps) {
           href="https://kiro.awskr.org?utm_source=kiro-friends&utm_medium=result-page&utm_campaign=personality-test"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackCTAClick('kiro_community', 'cta_section', { character: character.slug })}
           className="text-purple-400 hover:text-purple-300 underline underline-offset-4
                      transition-colors duration-200"
           data-testid="cta-kiro-community"
@@ -68,6 +72,7 @@ export default function CTASection({ character }: CTASectionProps) {
           href="https://www.awskr.org?utm_source=kiro-friends&utm_medium=result-page&utm_campaign=personality-test"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackCTAClick('aws_community', 'cta_section', { character: character.slug })}
           className="text-purple-400 hover:text-purple-300 underline underline-offset-4
                      transition-colors duration-200"
           data-testid="cta-aws-community"
@@ -81,6 +86,7 @@ export default function CTASection({ character }: CTASectionProps) {
             href="https://www.linkedin.com/in/yanso"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackCTAClick('developer_credit', 'cta_section', { character: character.slug })}
             className="hover:text-purple-300 underline underline-offset-4 transition-colors duration-200"
           >
             {t('cta.developer')}
@@ -90,6 +96,7 @@ export default function CTASection({ character }: CTASectionProps) {
           href="https://www.linkedin.com/in/jiyeon-choi-47ab9623a"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackCTAClick('character_designer_credit', 'cta_section', { character: character.slug })}
           className="text-purple-400 hover:text-purple-300 underline underline-offset-4
                      transition-colors duration-200"
         >

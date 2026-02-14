@@ -10,6 +10,7 @@
 
 import { useI18n } from '@/contexts/I18nContext';
 import type { Locale } from '@/lib/i18n/types';
+import { trackLanguageChange } from '@/lib/analytics';
 
 const locales: Locale[] = ['ko', 'en', 'ja'];
 
@@ -35,7 +36,11 @@ export default function LanguageSwitcher({ isOverlay = false }: LanguageSwitcher
   const handleClick = () => {
     const currentIndex = locales.indexOf(locale);
     const nextIndex = (currentIndex + 1) % locales.length;
-    setLocale(locales[nextIndex]);
+    const nextLocale = locales[nextIndex];
+    
+    // 언어 변경 추적
+    trackLanguageChange(locale, nextLocale);
+    setLocale(nextLocale);
   };
 
   // 오버레이 모드일 때는 fixed 위치 제거

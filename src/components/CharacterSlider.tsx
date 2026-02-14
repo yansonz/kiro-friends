@@ -11,6 +11,7 @@ import Link from 'next/link';
 import type { CharacterProfile, CharacterSlug } from '@/lib/types';
 import CharacterCard from './CharacterCard';
 import { useTranslation } from '@/lib/hooks/useTranslation';
+import { trackCharacterSliderInteraction } from '@/lib/analytics';
 
 interface CharacterSliderProps {
   characters: CharacterProfile[];
@@ -114,6 +115,11 @@ export default function CharacterSlider({ characters, currentType, isUnlocked = 
               <Link
                 key={`${character.slug}-${index}`}
                 href={`/result/${character.slug}`}
+                onClick={() => {
+                  if (isUnlocked) {
+                    trackCharacterSliderInteraction('click', character.slug);
+                  }
+                }}
                 className={`flex-shrink-0 w-32 snap-center transition-all duration-300
                   ${isCurrent
                     ? 'ring-2 ring-purple-400 rounded-2xl scale-105 shadow-lg shadow-purple-500/30'
