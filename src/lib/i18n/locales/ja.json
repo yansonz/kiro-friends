@@ -1,0 +1,67 @@
+{
+  "home.title": "👻 あなたはどのKiroフレンズ?",
+  "home.description.line1": "韓国の伝統説話に登場する10人のキャラクターがあなたの開発スタイルを教えてくれます。",
+  "home.description.line2": "ガッスンキロからダルギャル幽霊まで、あなたはどのタイプでしょうか?",
+  "home.cta": "自分のタイプを知る",
+  "home.duration": "16問、約2分",
+  "home.overlay.welcome": "Kiroフレンズへようこそ",
+  "home.overlay.start": "クリックして始める",
+  "home.overlay.music": "🎵 BGMが再生されます",
+
+  "quiz.questionLabel": "Q",
+  "quiz.optionsLabel": "選択肢",
+
+  "result.analysis": "📊 性格分析",
+  "result.strengths": "強み",
+  "result.pitfalls": "落とし穴",
+  "result.kiroFeatures": "おすすめKiro機能",
+  "result.aiTips": "AI協力のヒント",
+  "result.synergy": "シナジー",
+  "result.tension": "緊張",
+  "result.share": "シェア",
+  "result.shareTitle": "📢 結果をシェア",
+  "result.retake": "🔄 もう一度診断する",
+  "result.discover": "🔮 自分のタイプを知る",
+  "result.allCharacters": "👻 すべてのKiroフレンズ",
+  "result.unlockMessage": "🔗 リンクをコピーするとすべてのキャラクターが見られます!",
+  "result.locked": "🔒 ロック中",
+
+  "axis.stability": "安定",
+  "axis.experiment": "実験",
+  "axis.structure": "構造",
+  "axis.improvisation": "即興",
+  "axis.individual": "個人",
+  "axis.collaboration": "協力",
+  "axis.quality": "品質",
+  "axis.speed": "速度",
+
+  "toast.linkCopied": "共有リンクがコピーされました。",
+  "toast.shareWith": "{{name}}かもしれない人にシェアしてみてください",
+  "toast.learnAbout": "彼を知り己を知れば! {{name}}について把握してみましょう",
+
+  "share.copyLink": "リンクをコピー",
+  "share.downloadImage": "画像をダウンロード",
+  "share.linkCopied": "✅ リンクがコピーされました!",
+  "share.linkCopyFailed": "❌ リンクのコピーに失敗しました",
+  "share.imageDownload": "📥 画像のダウンロードを開始します",
+
+  "cta.download": "⬇️ Kiroをダウンロード",
+  "cta.learnMore": "📖 Kiroについて詳しく",
+  "cta.kiroKr": "🇰🇷 Kiro韓国ユーザーコミュニティ",
+  "cta.awsKr": "☁️ AWS韓国ユーザーコミュニティ",
+  "cta.developer": "💻 開発: Yan So x Kiro",
+  "cta.character": "🎨 キャラクター: Jiyoon Choi",
+
+  "common.loading": "読み込み中...",
+  "common.musicToggle": "音楽の切り替え",
+
+  "features.basic": "基本機能",
+  "features.advanced": "高度な機能",
+
+  "meta.title": "Kiroフレンズ - あなたはどんな開発者タイプ?",
+  "meta.description": "韓国の伝統説話に登場する10人のキャラクターで知る私の開発スタイル。16問であなたのコーディング性向を分析します。",
+  "meta.resultTitle": "{{name}} - Kiroフレンズ",
+
+  "slider.locked": "🔒 クイズを完了すると他のキャラクターを見ることができます",
+  "slider.unlocked": "他のキャラクターを見る"
+}

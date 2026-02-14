@@ -1,64 +1,101 @@
-import Image from "next/image";
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { characters } from '@/data/characters';
+import { useTranslation } from '@/lib/hooks/useTranslation';
+
+/** 10개 캐릭터 이모지를 원형으로 배치하기 위한 각도 계산 */
+function getCirclePosition(index: number, total: number) {
+  const angle = (index * 360) / total - 90; // -90도로 시작하여 12시 방향부터
+  const radian = (angle * Math.PI) / 180;
+  const radius = 42; // 반지름 (%)
+  const x = 50 + radius * Math.cos(radian);
+  const y = 50 + radius * Math.sin(radian);
+  return { x, y };
+}
 
 export default function Home() {
+  const { t, locale } = useTranslation();
+  
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-950 px-4 py-8 text-white">
+      <main className="flex w-full max-w-2xl flex-col items-center gap-6">
+        {/* 타이틀 - 모바일(360px+)에서 읽기 좋은 크기 */}
+        <h1 className="text-center text-2xl font-bold tracking-tight text-purple-300 drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+          {t('home.title')}
+        </h1>
+
+        {/* 세계관 소개 - 모바일에서 적절한 텍스트 크기 */}
+        <p className="max-w-md text-center text-sm leading-relaxed text-gray-400">
+          {t('home.description.line1')}
+          <br />
+          {t('home.description.line2')}
+        </p>
+
+        {/* 10개 캐릭터 이모지 원형 배치 - 모바일에서 충분한 터치 영역 */}
+        <div
+          className="relative mx-auto aspect-square w-56"
+          aria-label="10개 캐릭터 이모지"
+        >
+          {/* 회전하는 캐릭터 써클 */}
+          <div className="absolute inset-0 animate-spin-slow">
+            {characters.map((char, i) => {
+              const { x, y } = getCirclePosition(i, characters.length);
+              return (
+                <div
+                  key={char.slug}
+                  className="absolute w-0 h-0"
+                  style={{ left: `${x}%`, top: `${y}%` }}
+                >
+                  <div className="animate-spin-reverse" style={{ transformOrigin: '0 0' }}>
+                    <div
+                      className="flex h-14 w-14 items-center justify-center transition-transform hover:scale-125"
+                      style={{ transform: 'translate(-50%, -50%)' }}
+                      title={char.name[locale]}
+                    >
+                      <Image
+                        src={`/characters/${char.slug}.png`}
+                        alt={char.name[locale]}
+                        width={80}
+                        height={80}
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          
+          {/* 중앙 Kiro 메인 캐릭터 (회전하지 않음) */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+            <div className="flex h-24 w-24 items-center justify-center">
+              <Image
+                src="/characters/kiro.png"
+                alt="Kiro"
+                width={128}
+                height={128}
+                className="h-full w-full object-contain drop-shadow-[0_0_20px_rgba(168,85,247,0.6)]"
+                priority
+              />
+            </div>
+          </div>
+          
+          {/* 중앙 글로우 효과 */}
+          <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-600/20 blur-2xl" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+        {/* CTA 버튼 - 최소 44px 터치 타겟 보장 */}
+        <Link
+          href="/quiz"
+          className="min-h-[48px] rounded-full bg-gradient-to-r from-purple-600 to-orange-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-purple-700/30 transition-all hover:scale-105 hover:shadow-purple-600/40 active:scale-95"
+        >
+          {t('home.cta')}
+        </Link>
+
+        {/* 참여 안내 */}
+        <p className="text-xs text-gray-500">{t('home.duration')}</p>
       </main>
     </div>
   );

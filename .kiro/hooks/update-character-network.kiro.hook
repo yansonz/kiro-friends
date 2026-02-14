@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "캐릭터 네트워크 문서 업데이트",
+  "description": "캐릭터 시너지나 긴장관계가 변경되면 character-network.md 문서를 자동으로 업데이트합니다",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "src/data/characters.ts"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "캐릭터 데이터의 시너지(synergy)와 긴장관계(tension) 정보를 분석하여 character-network.md 파일을 업데이트해주세요. 변경된 관계를 반영하고 문서 형식을 유지해주세요."
+  }
+}

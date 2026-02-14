@@ -1,0 +1,67 @@
+{
+  "home.title": "👻 당신은 어떤 Kiro 프렌즈?",
+  "home.description.line1": "한국 전통 설화 속 10명의 캐릭터가 당신의 개발 스타일을 알려줍니다.",
+  "home.description.line2": "갓쓴키로부터 달걀귀신까지, 당신은 어떤 유형일까요?",
+  "home.cta": "내 유형 알아보기",
+  "home.duration": "16문항, 약 2분 소요",
+  "home.overlay.welcome": "Kiro 프렌즈에 오신 것을 환영합니다",
+  "home.overlay.start": "클릭하여 시작하기",
+  "home.overlay.music": "🎵 배경음악이 재생됩니다",
+
+  "quiz.questionLabel": "Q",
+  "quiz.optionsLabel": "선택지",
+
+  "result.analysis": "📊 성향 분석",
+  "result.strengths": "잘하는 점",
+  "result.pitfalls": "빠지기 쉬운 함정",
+  "result.kiroFeatures": "추천 Kiro 기능",
+  "result.aiTips": "AI 협업 팁",
+  "result.synergy": "시너지",
+  "result.tension": "긴장",
+  "result.share": "공유하기",
+  "result.shareTitle": "📢 결과 공유하기",
+  "result.retake": "🔄 다시 검사하기",
+  "result.discover": "🔮 나도 내 유형 알아보기",
+  "result.allCharacters": "👻 모든 Kiro 프렌즈",
+  "result.unlockMessage": "🔗 링크 복사하면 모든 캐릭터를 볼 수 있어요!",
+  "result.locked": "🔒 잠김",
+
+  "axis.stability": "안정",
+  "axis.experiment": "실험",
+  "axis.structure": "구조",
+  "axis.improvisation": "즉흥",
+  "axis.individual": "개인",
+  "axis.collaboration": "협업",
+  "axis.quality": "품질",
+  "axis.speed": "속도",
+
+  "toast.linkCopied": "공유링크가 복사됐습니다.",
+  "toast.shareWith": "{{name}} 일 것 같은 사람에게 공유해보세요",
+  "toast.learnAbout": "지피지기! {{name}}에 대해 파악 해보세요",
+
+  "share.copyLink": "링크 복사",
+  "share.downloadImage": "이미지 다운로드",
+  "share.linkCopied": "✅ 링크가 복사되었습니다!",
+  "share.linkCopyFailed": "❌ 링크 복사에 실패했습니다",
+  "share.imageDownload": "📥 이미지 다운로드를 시작합니다",
+
+  "cta.download": "⬇️ Kiro 다운로드",
+  "cta.learnMore": "📖 Kiro 더 알아보기",
+  "cta.kiroKr": "🇰🇷 Kiro 한국 사용자모임",
+  "cta.awsKr": "☁️ AWS 한국 사용자모임",
+  "cta.developer": "💻 개발: Yan So x Kiro",
+  "cta.character": "🎨 캐릭터: Jiyoon Choi",
+
+  "common.loading": "로딩 중...",
+  "common.musicToggle": "음악 토글",
+
+  "features.basic": "기본 기능",
+  "features.advanced": "고급 기능",
+
+  "meta.title": "Kiro 프렌즈 - 당신은 어떤 개발자 유형?",
+  "meta.description": "한국 전통 설화 속 10명의 캐릭터로 알아보는 나의 개발 스타일. 16문항으로 당신의 코딩 성향을 분석합니다.",
+  "meta.resultTitle": "{{name}} - Kiro 프렌즈",
+
+  "slider.locked": "🔒 퀴즈를 완료하면 다른 캐릭터를 볼 수 있어요",
+  "slider.unlocked": "다른 캐릭터 보기"
+}

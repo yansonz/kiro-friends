@@ -1,0 +1,67 @@
+{
+  "home.title": "👻 Which Kiro Friend Are You?",
+  "home.description.line1": "10 characters from Korean folklore reveal your development style.",
+  "home.description.line2": "From Gatssn Kiro to Dalgyal Ghost, which type are you?",
+  "home.cta": "Discover My Type",
+  "home.duration": "16 questions, about 2 minutes",
+  "home.overlay.welcome": "Welcome to Kiro Friends",
+  "home.overlay.start": "Click to Start",
+  "home.overlay.music": "🎵 Background music will play",
+
+  "quiz.questionLabel": "Q",
+  "quiz.optionsLabel": "Options",
+
+  "result.analysis": "📊 Personality Analysis",
+  "result.strengths": "Strengths",
+  "result.pitfalls": "Pitfalls",
+  "result.kiroFeatures": "Recommended Kiro Features",
+  "result.aiTips": "AI Collaboration Tips",
+  "result.synergy": "Synergy",
+  "result.tension": "Tension",
+  "result.share": "Share",
+  "result.shareTitle": "📢 Share Results",
+  "result.retake": "🔄 Retake Quiz",
+  "result.discover": "🔮 Discover My Type",
+  "result.allCharacters": "👻 All Kiro Friends",
+  "result.unlockMessage": "🔗 Copy link to see all characters!",
+  "result.locked": "🔒 Locked",
+
+  "axis.stability": "Stability",
+  "axis.experiment": "Experiment",
+  "axis.structure": "Structure",
+  "axis.improvisation": "Improvisation",
+  "axis.individual": "Individual",
+  "axis.collaboration": "Collaboration",
+  "axis.quality": "Quality",
+  "axis.speed": "Speed",
+
+  "toast.linkCopied": "Share link copied.",
+  "toast.shareWith": "Share with someone who might be {{name}}",
+  "toast.learnAbout": "Know your enemy! Learn about {{name}}",
+
+  "share.copyLink": "Copy Link",
+  "share.downloadImage": "Download Image",
+  "share.linkCopied": "✅ Link copied!",
+  "share.linkCopyFailed": "❌ Failed to copy link",
+  "share.imageDownload": "📥 Starting image download",
+
+  "cta.download": "⬇️ Download Kiro",
+  "cta.learnMore": "📖 Learn More About Kiro",
+  "cta.kiroKr": "🇰🇷 Kiro Korea Community",
+  "cta.awsKr": "☁️ AWS Korea Community",
+  "cta.developer": "💻 Developed by: Yan So x Kiro",
+  "cta.character": "🎨 Character Design: Jiyoon Choi",
+
+  "common.loading": "Loading...",
+  "common.musicToggle": "Toggle Music",
+
+  "features.basic": "Basic Feature",
+  "features.advanced": "Advanced Feature",
+
+  "meta.title": "Kiro Friends - What Type of Developer Are You?",
+  "meta.description": "Discover your coding style through 10 characters from Korean folklore. Analyze your development personality with 16 questions.",
+  "meta.resultTitle": "{{name}} - Kiro Friends",
+
+  "slider.locked": "🔒 Complete the quiz to see other characters",
+  "slider.unlocked": "View Other Characters"
+}

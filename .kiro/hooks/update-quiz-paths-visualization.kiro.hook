@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "퀴즈 경로 시각화 업데이트",
+  "description": "quiz-engine.ts 파일이 수정되면 character-quiz-paths.md의 시각화 정보를 자동으로 업데이트합니다",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "src/lib/quiz-engine.ts"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "quiz-engine.ts의 캐릭터 선택 알고리즘이 변경되었습니다. character-quiz-paths.md 파일을 분석하여 현재 알고리즘과 일치하도록 시각화 정보를 업데이트해주세요. 변경된 로직, 가중치, 경로 등을 반영하여 문서를 최신 상태로 유지해주세요."
+  }
+}
