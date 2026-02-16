@@ -12,6 +12,7 @@ import ResultPageClient from './client';
 import ResultClientWrapper from './result-client-wrapper';
 import QuizCTAButtonWrapper from '@/components/QuizCTAButtonWrapper';
 import ResultPageContent from './result-page-content';
+import PromoBanner from '@/components/PromoBanner';
 
 // 10개 캐릭터 슬러그를 빌드 타임에 사전 생성 (Req 11.1)
 export function generateStaticParams() {
@@ -103,6 +104,11 @@ export default async function ResultPage({
         {/* CTA 전환 영역 (Req 10) */}
         <section data-testid="result-cta-section" className="mb-8">
           <CTASection character={character} />
+        </section>
+
+        {/* 홍보 배너 (언어별) */}
+        <section data-testid="result-promo-banner" className="mb-8">
+          <PromoBanner />
         </section>
       </div>
     </div>
