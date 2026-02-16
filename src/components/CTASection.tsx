@@ -16,7 +16,7 @@ interface CTASectionProps {
 }
 
 export default function CTASection({ character }: CTASectionProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   
   return (
     <section
@@ -90,6 +90,16 @@ export default function CTASection({ character }: CTASectionProps) {
             className="hover:text-purple-300 underline underline-offset-4 transition-colors duration-200"
           >
             {t('cta.developer')}
+          </a>
+          {' | '}
+          <a
+            href={`https://yanlog.yanbert.com/${locale === 'ja' ? 'en' : locale}/blog/kiro-friends-introduction-20260217/?utm_source=kiro-friends&utm_medium=result-page&utm_campaign=dev-blog`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackCTAClick('dev_blog', 'cta_section', { character: character.slug })}
+            className="hover:text-purple-300 underline underline-offset-4 transition-colors duration-200"
+          >
+            {t('cta.devBlog')}
           </a>
         </div>
         <a
