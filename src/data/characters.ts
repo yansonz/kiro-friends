@@ -8,7 +8,7 @@ export const characters: CharacterProfile[] = [
     name: {
       ko: '갓쓴키로',
       en: 'Gatssn Kiro',
-      ja: 'ガッスンキロ型',
+      ja: 'ガッスンキロ',
     },
     title: {
       ko: '전략 설계자',
@@ -191,8 +191,8 @@ export const characters: CharacterProfile[] = [
     emoji: '👻',
     name: {
       ko: '총각귀신',
-      en: 'Chonggak Ghost',
-      ja: 'チョンガク型',
+      en: 'Chonggak Gwishin',
+      ja: 'チョンガクグィシン',
     },
     title: {
       ko: '몰입 장인',
@@ -375,8 +375,8 @@ export const characters: CharacterProfile[] = [
     emoji: '👰',
     name: {
       ko: '처녀귀신',
-      en: 'Cheonyeo Ghost',
-      ja: 'チョニョ型',
+      en: 'Cheonyeo Gwishin',
+      ja: 'チョニョグィシン',
     },
     title: {
       ko: 'UX 수호자',
@@ -560,7 +560,7 @@ export const characters: CharacterProfile[] = [
     name: {
       ko: '도깨비',
       en: 'Dokkaebi',
-      ja: 'トッケビ型',
+      ja: 'トッケビ',
     },
     title: {
       ko: '실험 개척자',
@@ -744,7 +744,7 @@ export const characters: CharacterProfile[] = [
     name: {
       ko: '구미호',
       en: 'Gumiho',
-      ja: 'クミホ型',
+      ja: 'クミホ',
     },
     title: {
       ko: '자동화 마법사',
@@ -928,7 +928,7 @@ export const characters: CharacterProfile[] = [
     name: {
       ko: '해태',
       en: 'Haetae',
-      ja: 'ヘテ型',
+      ja: 'ヘテ',
     },
     title: {
       ko: '품질 파수꾼',
@@ -1112,7 +1112,7 @@ export const characters: CharacterProfile[] = [
     name: {
       ko: '장승',
       en: 'Jangseung',
-      ja: 'チャンスン型',
+      ja: 'チャンスン',
     },
     title: {
       ko: '거버넌스 수문장',
@@ -1296,7 +1296,7 @@ export const characters: CharacterProfile[] = [
     name: {
       ko: '저승사자',
       en: 'Jeoseung Saja',
-      ja: 'チョスンサジャ型',
+      ja: 'チョスンサジャ',
     },
     title: {
       ko: '부채 청산자',
@@ -1480,7 +1480,7 @@ export const characters: CharacterProfile[] = [
     name: {
       ko: '물귀신',
       en: 'Mulgwisin',
-      ja: 'ムルグィシン型',
+      ja: 'ムルグィシン',
     },
     title: {
       ko: '연결 촉진자',
@@ -1663,8 +1663,8 @@ export const characters: CharacterProfile[] = [
     emoji: '🥚',
     name: {
       ko: '달걀귀신',
-      en: 'Dalgyal Ghost',
-      ja: 'ダルギャル型',
+      en: 'Dalgyal Gwishin',
+      ja: 'ダルギャルグィシン',
     },
     title: {
       ko: '추상화 장인',
