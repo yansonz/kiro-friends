@@ -16,7 +16,7 @@ interface ShareButtonsProps {
 }
 
 export default function ShareButtons({ character, resultUrl, onLinkCopied }: ShareButtonsProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // 링크 복사 핸들러
@@ -39,8 +39,8 @@ export default function ShareButtons({ character, resultUrl, onLinkCopied }: Sha
   // 이미지 다운로드 핸들러
   const handleDownloadImage = () => {
     const link = document.createElement('a');
-    link.href = `/og/${character.slug}.png`;
-    link.download = `kiro-friends-${character.slug}.png`;
+    link.href = `/og/${character.slug}-${locale}.png`;
+    link.download = `kiro-friends-${character.slug}-${locale}.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

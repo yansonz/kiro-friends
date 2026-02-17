@@ -14,14 +14,14 @@ graph TB
     jangseung["🪵 장승<br/>거버넌스 수문장"]
     jeoseung["⚰️ 저승사자<br/>부채 청산자"]
     mulgwisin["🌊 물귀신<br/>연결 촉진자"]
-    dalgyal["🥚 달걀귀신<br/>추상화 장인"]
+    dalgyal["🥚 달걀귀신<br/>성장 조력자"]
     
     %% 상호 시너지 (양방향)
     gatssn <-->|"전략 + 부채청산"| jeoseung
     chonggak <-->|"몰입 + 자동화"| gumiho
     cheonyeo <-->|"UX + 품질"| haetae
     dokkaebi <-->|"실험 + 연결"| mulgwisin
-    jangseung <-->|"거버넌스 + 추상화"| dalgyal
+    jangseung <-->|"거버넌스 + 멘토링"| dalgyal
     
     %% 스타일
     classDef synergyNode fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
@@ -42,14 +42,14 @@ graph TB
     jangseung["🪵 장승<br/>거버넌스 수문장"]
     jeoseung["⚰️ 저승사자<br/>부채 청산자"]
     mulgwisin["🌊 물귀신<br/>연결 촉진자"]
-    dalgyal["🥚 달걀귀신<br/>추상화 장인"]
+    dalgyal["🥚 달걀귀신<br/>성장 조력자"]
     
     %% 상호 긴장 (양방향)
     gatssn <-.->|"설계 vs UX 디테일"| cheonyeo
     chonggak <-.->|"빠른 구현 vs 리팩토링"| jeoseung
     dokkaebi <-.->|"실험 vs 품질"| haetae
     gumiho <-.->|"자동화 vs 프로세스"| jangseung
-    mulgwisin <-.->|"연결 확장 vs 단순화"| dalgyal
+    mulgwisin <-.->|"연결 확장 vs 멘토링 집중"| dalgyal
     
     %% 스타일
     classDef tensionNode fill:#ffebee,stroke:#c62828,stroke-width:2px
@@ -70,21 +70,21 @@ graph TB
     jangseung["🪵 장승<br/>거버넌스 수문장"]
     jeoseung["⚰️ 저승사자<br/>부채 청산자"]
     mulgwisin["🌊 물귀신<br/>연결 촉진자"]
-    dalgyal["🥚 달걀귀신<br/>추상화 장인"]
+    dalgyal["🥚 달걀귀신<br/>성장 조력자"]
     
     %% 시너지 관계 (파란색 실선)
     gatssn ===|"전략 + 부채청산"| jeoseung
     chonggak ===|"몰입 + 자동화"| gumiho
     cheonyeo ===|"UX + 품질"| haetae
     dokkaebi ===|"실험 + 연결"| mulgwisin
-    jangseung ===|"거버넌스 + 추상화"| dalgyal
+    jangseung ===|"거버넌스 + 멘토링"| dalgyal
     
     %% 긴장 관계 (빨간색 점선)
     gatssn -.-|"설계 vs UX"| cheonyeo
     chonggak -.-|"구현 vs 리팩토링"| jeoseung
     dokkaebi -.-|"실험 vs 품질"| haetae
     gumiho -.-|"자동화 vs 프로세스"| jangseung
-    mulgwisin -.-|"연결 vs 단순화"| dalgyal
+    mulgwisin -.-|"연결 vs 멘토링"| dalgyal
     
     %% 스타일
     classDef defaultNode fill:#fff3e0,stroke:#f57c00,stroke-width:2px
