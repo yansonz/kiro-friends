@@ -377,7 +377,11 @@ function createDefaultOgMarkup(bgImageSrc: string, locale: Locale) {
                     textAlign: 'center',
                     textShadow: '0 2px 8px rgba(0, 0, 0, 0.5)',
                   },
-                  children: t('home.title'),
+                  children: locale === 'ko' 
+                    ? '당신은 어떤 Kiro 프렌즈?'
+                    : locale === 'en'
+                    ? 'Which Kiro Friend Are You?'
+                    : 'あなたはどのKiroフレンズ？',
                 },
               },
               // 서브타이틀
