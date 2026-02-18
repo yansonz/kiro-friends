@@ -412,10 +412,10 @@ function createDefaultOgMarkup(bgImageSrc: string, locale: Locale) {
                     backdropFilter: 'blur(4px)',
                   },
                   children: locale === 'ko' 
-                    ? '8문항 · 약 1분 소요'
+                    ? '16문항 · 약 2분 소요'
                     : locale === 'en'
-                    ? '8 questions · About 1 minute'
-                    : '8問 · 約1分',
+                    ? '16 questions · About 2 minutes'
+                    : '16問 · 約2分',
                 },
               },
             ],
