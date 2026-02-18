@@ -53,8 +53,7 @@ const dissonance = [
 // 배경음악 플레이어 컴포넌트
 export default function MusicPlayer() {
   const { t } = useTranslation();
-  const [isMuted, setIsMuted] = useState(false);
-  const [isOverlayVisible, setIsOverlayVisible] = useState(true);
+  const [isMuted, setIsMuted] = useState(true); // 기본 뮤트 상태
   const audioContextRef = useRef<AudioContext | null>(null);
   const masterGainRef = useRef<GainNode | null>(null);
   const isPlayingRef = useRef(false);
@@ -90,8 +89,6 @@ export default function MusicPlayer() {
     for (let i = 0; i < melody.length; i++) {
       const noteTime = loopStartTime + i * stepDuration;
       
-      if (isMuted) continue;
-      
       // 멜로디 (삼각파 - 날카롭고 불안한 느낌)
       const melNote = notes[melody[i]];
       if (melNote) playNoteAt(melNote, stepDuration * 4, 'triangle', 0.08, noteTime);
@@ -111,129 +108,60 @@ export default function MusicPlayer() {
     }
   };
 
-  useEffect(() => {
-    // 오버레이 클릭 이벤트 리스너
-    const overlay = document.getElementById('start-overlay');
-    if (!overlay) return;
+  // AudioContext는 사용자 인터랙션 시 초기화 (handleToggle에서 처리)
 
-    const handleStart = (e: MouseEvent | TouchEvent) => {
-      // 설정 버튼 영역 클릭 시에는 시작하지 않음
-      const target = e.target as HTMLElement;
-      if (target.closest('.settings-buttons')) {
-        return;
-      }
-
-      // AudioContext 초기화
-      if (!audioContextRef.current) {
-        audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
-        masterGainRef.current = audioContextRef.current.createGain();
-        masterGainRef.current.gain.value = isMuted ? 0 : 0.2;
-        masterGainRef.current.connect(audioContextRef.current.destination);
-      }
-
-      // 음악 재생 시작
-      if (audioContextRef.current.state === 'suspended') {
-        audioContextRef.current.resume();
-      }
-      
-      if (!isPlayingRef.current && !isMuted) {
-        isPlayingRef.current = true;
-        const startTime = audioContextRef.current.currentTime;
-        const stepDuration = 60 / tempo / 2;
-        const loopDuration = melody.length * stepDuration;
-        scheduleLoop(0, startTime, loopDuration);
-      }
-      
-      overlay.classList.add('hidden');
-      setIsOverlayVisible(false);
-    };
-
-    overlay.addEventListener('click', handleStart as EventListener);
-    overlay.addEventListener('touchend', handleStart as EventListener);
-
-    return () => {
-      overlay.removeEventListener('click', handleStart as EventListener);
-      overlay.removeEventListener('touchend', handleStart as EventListener);
-    };
-  }, [isMuted]);
-
-  const handleToggle = () => {
+  const handleToggle = async () => {
     const newMuted = !isMuted;
     setIsMuted(newMuted);
     
     // 음악 플레이어 인터랙션 추적
     trackMusicPlayerInteraction(newMuted ? 'pause' : 'play');
     
-    // AudioContext가 이미 초기화되어 있으면 즉시 볼륨 조정
-    if (masterGainRef.current) {
-      masterGainRef.current.gain.value = newMuted ? 0 : 0.2;
+    // AudioContext 초기화 (첫 클릭 시)
+    if (!audioContextRef.current) {
+      audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+      masterGainRef.current = audioContextRef.current.createGain();
+      masterGainRef.current.gain.value = 0;
+      masterGainRef.current.connect(audioContextRef.current.destination);
+    }
+    
+    // AudioContext resume (사용자 인터랙션 필요)
+    if (audioContextRef.current.state === 'suspended') {
+      await audioContextRef.current.resume();
+    }
+    
+    // 음악 재생 시작 또는 중지
+    if (!newMuted) {
+      if (!isPlayingRef.current) {
+        isPlayingRef.current = true;
+        const startTime = audioContextRef.current.currentTime;
+        const stepDuration = 60 / tempo / 2;
+        const loopDuration = melody.length * stepDuration;
+        scheduleLoop(0, startTime, loopDuration);
+      }
+      masterGainRef.current!.gain.value = 0.2;
+    } else {
+      masterGainRef.current!.gain.value = 0;
     }
   };
 
   return (
     <>
-      {/* 시작 오버레이 */}
-      <div
-        id="start-overlay"
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm cursor-pointer"
-      >
-        <div className="text-center px-6">
-          <div className="text-6xl mb-6 animate-gentle-float">👻</div>
-          <h2 className="text-2xl font-bold text-purple-100 mb-4">
-            {t('home.overlay.welcome')}
-          </h2>
-          <p className="text-gray-400 mb-8">
-            {t('home.overlay.start')}
-          </p>
-          <div className="text-sm text-gray-500 mb-6">
-            {t('home.overlay.music')}
-          </div>
-          
-          {/* 설정 버튼들 */}
-          <div className="flex gap-4 justify-center items-center settings-buttons">
-            {/* 음악 토글 버튼 */}
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                handleToggle();
-              }}
-              className="w-12 h-12 rounded-full bg-purple-900/80 
-                         border border-purple-700/50 text-2xl flex items-center justify-center
-                         hover:bg-purple-800/80 active:scale-95 transition-all shadow-lg cursor-pointer
-                         touch-manipulation"
-              aria-label={t('common.musicToggle')}
-            >
-              {isMuted ? '🔇' : '🔊'}
-            </button>
-            
-            {/* 언어 전환 버튼 */}
-            <div onClick={(e) => e.stopPropagation()}>
-              <LanguageSwitcher isOverlay={true} />
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* 음악 토글 버튼 */}
-      {!isOverlayVisible && (
-        <>
-          <button
-            type="button"
-            onClick={handleToggle}
-            className="fixed top-4 right-4 z-[100] w-12 h-12 rounded-full bg-purple-900/80 
-                       border border-purple-700/50 text-2xl flex items-center justify-center
-                       hover:bg-purple-800/80 active:scale-95 transition-all shadow-lg cursor-pointer
-                       touch-manipulation"
-            aria-label={t('common.musicToggle')}
-          >
-            {isMuted ? '🔇' : '🔊'}
-          </button>
-          
-          {/* 언어 전환 버튼 */}
-          <LanguageSwitcher isOverlay={false} />
-        </>
-      )}
+      <button
+        type="button"
+        onClick={handleToggle}
+        className="fixed top-4 right-4 z-[100] w-12 h-12 rounded-full bg-purple-900/80 
+                   border border-purple-700/50 text-2xl flex items-center justify-center
+                   hover:bg-purple-800/80 active:scale-95 transition-all shadow-lg cursor-pointer
+                   touch-manipulation"
+        aria-label={t('common.musicToggle')}
+      >
+        {isMuted ? '🔇' : '🔊'}
+      </button>
+      
+      {/* 언어 전환 버튼 */}
+      <LanguageSwitcher isOverlay={false} />
     </>
   );
 }
