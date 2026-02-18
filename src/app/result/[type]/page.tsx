@@ -101,14 +101,14 @@ export default async function ResultPage({
         {/* "나도 내 유형 알아보기" / "다시 검사하기" CTA 버튼 (Req 9.2) - 터치 친화적 크기 */}
         <QuizCTAButtonWrapper />
 
-        {/* CTA 전환 영역 (Req 10) */}
-        <section data-testid="result-cta-section" className="mb-8">
-          <CTASection character={character} />
-        </section>
-
         {/* 홍보 배너 (언어별) */}
         <section data-testid="result-promo-banner" className="mb-8">
           <PromoBanner />
+        </section>
+
+        {/* CTA 전환 영역 (Req 10) */}
+        <section data-testid="result-cta-section" className="mb-8">
+          <CTASection character={character} />
         </section>
       </div>
     </div>
