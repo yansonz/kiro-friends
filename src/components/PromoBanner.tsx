@@ -10,22 +10,22 @@ export default function PromoBanner() {
   // 언어별 배너 이미지 및 링크 매핑
   const bannerConfig = {
     ko: {
-      src: '/banner_kr_awssummit_seoul_cfp.png',
-      url: 'https://docs.google.com/forms/d/e/1FAIpQLSde7BugZlyg45QIzzvjb5qKl_4WYO07YwQODtuMyNQzmseBjw/viewform',
-      alt: 'AWS Summit Seoul CFP',
-      eventName: 'aws_summit_seoul_cfp',
+      src: '/banner_aws_reinvent.png',
+      url: 'https://aws.amazon.com/events/reinvent/',
+      alt: 'AWS re:Invent',
+      eventName: 'aws_reinvent',
     },
     en: {
-      src: '/banner_en_awssummit_global.png',
-      url: 'https://aws.amazon.com/events/summits',
-      alt: 'AWS Summits',
-      eventName: 'aws_summits_global',
+      src: '/banner_aws_reinvent.png',
+      url: 'https://aws.amazon.com/events/reinvent/',
+      alt: 'AWS re:Invent',
+      eventName: 'aws_reinvent',
     },
     ja: {
-      src: '/banner_jp_awsjawsday2026.png',
-      url: 'https://jawsdays2026.jaws-ug.jp',
-      alt: 'JAWS DAYS 2026',
-      eventName: 'jaws_days_2026',
+      src: '/banner_aws_reinvent.png',
+      url: 'https://aws.amazon.com/events/reinvent/',
+      alt: 'AWS re:Invent',
+      eventName: 'aws_reinvent',
     },
   };
 
