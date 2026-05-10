@@ -1,6 +1,7 @@
 # 👻 Kiro 프렌즈
 
 한국 전통 설화 캐릭터로 알아보는 개발자 성향 테스트
+https://kiro-friends.yanbert.com
 
 ## 프로젝트 소개
 
